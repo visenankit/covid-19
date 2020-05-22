@@ -1,0 +1,103 @@
+name: Android CI
+html>
+ <head>
+ <title>MEDICARE 4U</title>
+ <link href="main.css" rel="stylesheet" type="text/css">
+ </head>
+ <header><h1><strong>MEDICARE FOR U</strong></h1>
+ 	<p style="text-align: center;">THE COMPLETE COVID ASSISSTANT .....</p></header>
+ <body>
+  <nav><a href="https://www.ndtv.com/coronavirus">COVID NEWS</a>
+  	<a href="https://www.healthline.com/health/coronavirus-covid-19">SYMPTOMS AND PRECAUTIONS</a> 
+    <a href="https://indianhelpline.com/">HELPLINE</a>
+    <a href="https://www.business-standard.com/article/current-affairs/coronavirus-live-updates-india-cases-global-death-toll-corona-vaccine-migrant-tragedy-maharashtra-delhi-covid-19-latest-news-120052200119_1.html">LOCKDOWN DETAILS</a>
+    <a href="https://www.who.int/ith/updates/en/">WHO UPDATES</a>
+  </nav>
+  <div class="split left">
+  <p class="harsha"><h2 style="text-align: left"><strong>What is corona virus?</a></strong></h2><br>coronaviruses are a type of virus. There are many different kinds, and some cause disease. A newly identified type has caused a recent outbreak of respiratory illness now called COVID-19.
+Lauren Sauer, M.S., the director of operations with the Johns Hopkins Office of Critical Event Preparedness and Response and director of research with the Johns Hopkins Biocontainment Unit, shares information about COVID-19 and what you need to know.<br>
+
+<h2 style="text-align: left"><strong>How does the new coronavirus spread?</strong></h2>
+As of now, researchers know that the new coronavirus is spread through droplets released into the air when an infected person coughs or sneezes. The droplets generally do not travel more than a few feet, and they fall to the ground (or onto surfaces) in a few seconds — this is why social and physical distancing is effective in preventing the spread.<br>
+
+<h2 style="text-align: left"><strong>How did this new coronavirus spread to humans?</strong></h2>
+COVID-19 appeared in Wuhan, a city in China, in December 2019. Although health officials are still tracing the exact source of this new coronavirus, early hypotheses thought it may be linked to a seafood market in Wuhan, China. Some people who visited the market developed viral pneumonia caused by the new coronavirus. A study that came out on Jan. 25, 2020, notes that the individual with the first reported case became ill on Dec. 1, 2019, and had no link to the seafood market. Investigations are ongoing as to how this virus originated and spread.<br> 
+
+<h2 style="text-align: left"><strong>What is the incubation period for COVID-19?</strong></h2>
+It appears that symptoms are showing up in people within 14 days of exposure to the virus.<br>
+
+<h2 style="text-align: left"><strong>What are symptoms of COVID-19?</strong></h2>
+COVID-19 symptoms include:
+
+Cough
+Fever
+Shortness of breath
+Muscle aches
+Sore throat
+Unexplained loss of taste or smell
+Diarrhea
+Headache
+In rare cases, COVID-19 can lead to severe respiratory problems, kidney failure or death.
+
+If you have a fever or any kind of respiratory difficulty such as coughing or shortness of breath, call your doctor or a health care provider and explain your symptoms over the phone before going to the doctor’s office, urgent care facility or emergency room. Here are suggestions if you feel sick and are concerned you might have COVID-19.
+
+If you have a medical emergency such as severe shortness of breath, call 911 and let them know about your symptoms.<br>
+
+<h2 style="text-align: left"><strong>How is COVID-19 diagnosed?</strong></h2>
+Diagnosis may be difficult with only a physical exam because mild cases of COVID-19 may appear similar to the flu or a bad cold. A laboratory test can confirm the diagnosis. Learn more about COVID-19 testing.<br>
+
+<h2 style="text-align: left"><strong>How is COVID-19 treated?</strong></h2>
+As of now, there is not a specific treatment for the virus. People who become sick from COVID-19 should be treated with supportive measures: those that relieve symptoms. For severe cases, there may be additional options for treatment, including research drugs and therapeutics.<br>
+
+<h2 style="text-align: left"><strong>Does COVID-19 cause death?</strong></h2>
+As of May 12, 2020, 286,669 deaths have been attributed to COVID-19. However, 1,466,075 people have recovered from the illness. This information comes from the Coronavirus COVID-19 Global Cases map developed by the Johns Hopkins Center for Systems Science and Engineering.<br>
+<h2 style="text-align: left"><strong>Is this coronavirus different from SARS?</strong></h2>
+SARS stands for severe acute respiratory syndrome. In 2003, an outbreak of SARS started in China and spread to other countries before ending in 2004. The virus that causes COVID-19 is similar to the one that caused the 2003 SARS outbreak: both are types of coronaviruses. Much is still unknown, but COVID-19 seems to spread faster than the 2003 SARS and also may cause less severe illness.<br></p>
+</div>
+<form class="hari">
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname" value="John"><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname" value="Doe"><br><br>
+  <input type="submit" value="Submit">
+</form> 
+
+<footer>
+  <p>Author: XXXXXXXXX</p>
+  <p><a href="">covid@example.com</a></p>	
+</footer>
+<script>
+  window.watsonAssistantChatOptions = {
+      integrationID: "f868ec78-2207-462c-80a1-d362600b9ce5", // The ID of this integration.
+      region: "eu-gb", // The region your integration is hosted in.
+      serviceInstanceID: "aaaf6fef-96bf-40b7-9fb1-218e37acacb5", // The ID of your service instance.
+      onLoad: function(instance) { instance.render(); }
+    };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js";
+    document.head.appendChild(t);
+  });
+</script>
+ </body>
+ </html>
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    - name: Build with Gradle
+      run: ./gradlew build
